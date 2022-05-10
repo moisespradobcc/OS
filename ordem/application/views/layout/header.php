@@ -9,7 +9,8 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>SB Admin 2 - Blank</title>
+        <?php echo (isset($titulo) ? '<title>System Ordem | ' . $titulo . '</title>' : '<title>System Ordem</title>') ?>
+        <?php ?>
 
         <!-- Custom fonts for this template-->
         <link href="<?php echo base_url('public/vendor/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" type="text/css">
@@ -19,6 +20,12 @@
 
         <!-- Custom styles for this template-->
         <link href="<?php echo base_url('public/css/sb-admin-2.min.css" rel="stylesheet'); ?>"
+
+              <?php if (isset($styles)): ?>
+                  <?php foreach ($styles as $style): ?>
+                      <link href="<?php echo base_url('public/' . $style); ?>" rel="stylesheet">
+                  <?php endforeach; ?>
+              <?php endif; ?>              
 
     </head>
 
