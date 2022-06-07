@@ -13,6 +13,31 @@
                 <li class="breadcrumb-item active" aria-current="page"><?php echo $titulo; ?></li>
             </ol>
         </nav>
+        <?php if ($message = $this->session->flashdata('sucesso')): ?>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong><i class="far fa-smile-wink"></i>&nbsp;&nbsp;<?php echo $message; ?></strong> 
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($message = $this->session->flashdata('error')): ?>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong><i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;<?php echo $message; ?></strong> 
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
 
@@ -34,8 +59,8 @@
 
                         <div class="col-md-3">
                             <label>CNPJ</label>
-                            <input type="text" class="form-control" name="sistema_cnpj" placeholder="CNPJ" value="<?php echo $sistema->sistema_cnpj; ?>">
-                            <?php echo form_error('email', '<small class="form-text text-danger">', '</small>'); ?>
+                            <input type="text" class="form-control cnpj" name="sistema_cnpj" placeholder="CNPJ" value="<?php echo $sistema->sistema_cnpj; ?>">
+                            <?php echo form_error('sistema_cnpj', '<small class="form-text text-danger">', '</small>'); ?>
                         </div>
 
                         <div class="col-md-3">
@@ -49,13 +74,13 @@
                     <div class="form-group row mb-3">
                         <div class="col-md-3">
                             <label>Telefone fixo</label>
-                            <input type="text" class="form-control" name="sistema_telefone_fixo" placeholder="Telefone fixo" value="<?php echo $sistema->sistema_telefone_fixo; ?>">
+                            <input type="text" class="form-control sp_celphones" name="sistema_telefone_fixo" placeholder="Telefone fixo" value="<?php echo $sistema->sistema_telefone_fixo; ?>">
                             <?php echo form_error('sistema_telefone_fixo', '<small class="form-text text-danger">', '</small>'); ?>
                         </div>
 
                         <div class="col-md-3">
                             <label>Telefone móvel</label>
-                            <input type="text" class="form-control" name="sistema_telefone_movel" placeholder="Telefone móvel" value="<?php echo $sistema->sistema_telefone_movel; ?>">
+                            <input type="text" class="form-control sp_celphones" name="sistema_telefone_movel" placeholder="Telefone móvel" value="<?php echo $sistema->sistema_telefone_movel; ?>">
                             <?php echo form_error('sistema_telefone_movel', '<small class="form-text text-danger">', '</small>'); ?>
                         </div>
 
@@ -82,7 +107,7 @@
 
                         <div class="col-md-2">
                             <label>CEP</label>
-                            <input type="text" class="form-control" name="sistema_cep" placeholder="Telefone CEP" value="<?php echo $sistema->sistema_cep; ?>">
+                            <input type="text" class="form-control cep" name="sistema_cep" placeholder="Telefone CEP" value="<?php echo $sistema->sistema_cep; ?>">
                             <?php echo form_error('sistema_cep', '<small class="form-text text-danger">', '</small>'); ?>
                         </div>
 
